@@ -42,7 +42,7 @@ app.post("/accounts/signin", async (req, res) => {
 
 app.post("/txn/send", async(req, res) => {
   var objPoeResponse = await poe.send(req);
-  await db.writeTxn(objPoeResponse);
+  await db.writeTxn(JSON.parse(objPoeResponse));
   res.send(objPoeResponse);
 });
 
